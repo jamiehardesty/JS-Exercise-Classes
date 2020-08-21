@@ -41,9 +41,9 @@ class Airplane {
 */
 
 class Person {
-  constructor(attrs){
-    this.name = attrs.name;
-    this.age = attrs.age;
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
     this.stomach = [];
   }
   eat(someFood){
@@ -58,10 +58,8 @@ class Person {
     return `${this.name}, ${this.age}`;
   }
 }
-const Neo = new Person({
-  name: "Neo",
-  age: 20,
-});
+const Neo = new Person('Neo', 20);
+// console.log(Neo);
 console.log(Neo.toString());
 
 /*
@@ -79,8 +77,27 @@ console.log(Neo.toString());
 */
 
 class Car {
-
+  constructor(model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons){
+    console.log(this.tank);
+    return this.tank += gallons;
+  }
+  drive(distance){
+    // this.milesPerGallon *= this.tank;
+    this.odometer = this.milesPerGallon - distance;
+    if(this.tank < 0){
+      return `I ran out of fuel at ${this.odometer} miles!`
+    }
+  }
 }
+const memeTruck = new Car("Tesla Cybertruck",250);
+console.log(memeTruck.fill(10));
+console.log(memeTruck.drive(50));
 
 /*
   TASK 3
