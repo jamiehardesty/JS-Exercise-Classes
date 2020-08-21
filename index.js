@@ -70,8 +70,8 @@ console.log(Neo.toString());
         + should initialize with an `odometer` at 0
     - Give cars the ability to get fueled with a `.fill(gallons)` method. Add the gallons to `tank`.
     - Give cars ability to `.drive(distance)`. The distance driven:
-        + Should cause the `odometer` to go up.
-        + Should cause the the `tank` to go down taking `milesPerGallon` into account.
+        [x]+ Should cause the `odometer` to go up. 
+        [x]+ Should cause the the `tank` to go down taking `milesPerGallon` into account.
     - A car which runs out of `fuel` while driving can't drive any more distance:
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
@@ -95,7 +95,7 @@ class Car {
     }else{
       this.fuel -= distance;
       this.odometer = this.odometer + distance;
-      return console.log("I ran out of fuel at " + this.odometer + " miles");
+      return `I ran out of fuel at ${this.odometer} miles`;
     }
   }
 }
@@ -117,8 +117,16 @@ console.log(memeTruck.drive(30));
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-
+  constructor(attrs){
+    this.name = attrs.name;
+    this.age = attrs.age;
+    this.location = attrs.location;
+  }
+  speak(){
+    return `Hello, my name is ${this.name}, I am from ${this.location}.`;
+  }
 }
+const Jamie = new Lambdasian("Jamie",28,"Silicon Valley");
 
 /*
   TASK 4
