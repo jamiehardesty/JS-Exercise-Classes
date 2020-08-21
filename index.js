@@ -85,23 +85,24 @@ class Car {
     this.fuel = 0;
   }
   fill(gallons){
-    return this.tank = this.tank + gallons;
+    this.tank = this.tank + gallons
+    return this.fuel = this.tank * this.milesPerGallon;
   }
   drive(distance){
     if(this.tank > 0){
-      this.fuel = (this.tank * this.milesPerGallon) - distance;
+      this.fuel -= distance;
       return this.odometer = this.odometer + distance;
     }else{
-      this.fuel = (this.tank * this.milesPerGallon) - distance;
+      this.fuel -= distance;
       this.odometer = this.odometer + distance;
-      return `I ran out of fuel at ${this.odometer} miles!`;
+      return console.log("I ran out of fuel at " + this.odometer + " miles");
     }
   }
 }
 const memeTruck = new Car("Tesla Cybertruck",250);
 console.log(memeTruck.fill(10));
 console.log(memeTruck.drive(30));
-console.log(memeTruck.drive(3000));
+// console.log(memeTruck.drive(3000));
 
 /*
   TASK 3
